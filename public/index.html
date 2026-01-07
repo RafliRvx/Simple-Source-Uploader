@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileStream | Simple & Permanent File Sharing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h1>FileStream</h1>
+            </div>
+            <p class="tagline">Upload once, access forever</p>
+        </header>
+
+        <main class="main-content">
+            <section class="hero">
+                <h2>Share Files Instantly & Permanently</h2>
+                <p>Upload any file up to 20MB and get a permanent link that works forever. No registration required.</p>
+            </section>
+
+            <section class="upload-area" id="uploadArea">
+                <div class="upload-box" id="dropZone">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <h3>Drag & Drop Files Here</h3>
+                    <p>or click to browse</p>
+                    <input type="file" id="fileInput" hidden>
+                    <button class="browse-btn" id="browseBtn">Choose File</button>
+                    <p class="file-size-note">Maximum file size: 20MB</p>
+                </div>
+                
+                <div class="supported-formats">
+                    <h4>Supports all file types:</h4>
+                    <div class="format-tags">
+                        <span class="format-tag"><i class="fas fa-image"></i> Images</span>
+                        <span class="format-tag"><i class="fas fa-video"></i> Videos</span>
+                        <span class="format-tag"><i class="fas fa-music"></i> Audio</span>
+                        <span class="format-tag"><i class="fas fa-file-pdf"></i> PDFs</span>
+                        <span class="format-tag"><i class="fas fa-file-archive"></i> Archives</span>
+                        <span class="format-tag"><i class="fas fa-file-code"></i> Documents</span>
+                        <span class="format-tag"><i class="fas fa-file"></i> Any file</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="progress-section hidden" id="progressSection">
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <h3>Uploading...</h3>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="file-info" id="fileInfo"></p>
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="result-section hidden" id="resultSection">
+                <div class="result-box success">
+                    <i class="fas fa-check-circle success-icon"></i>
+                    <h3>Upload Successful!</h3>
+                    <p class="result-text">Your file is now available at:</p>
+                    <div class="url-container">
+                        <input type="text" id="resultUrl" readonly>
+                        <button class="copy-btn" id="copyBtn">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <div class="result-actions">
+                        <a href="#" class="action-btn" id="visitLink" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Visit Link
+                        </a>
+                        <button class="action-btn secondary" id="uploadAnother">
+                            <i class="fas fa-plus"></i> Upload Another
+                        </button>
+                    </div>
+                    <p class="duplicate-notice hidden" id="duplicateNotice">
+                        <i class="fas fa-info-circle"></i> This file was already uploaded previously
+                    </p>
+                </div>
+            </section>
+
+            <section class="how-it-works">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Upload</h4>
+                        <p>Drag & drop or select any file up to 20MB</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>Process</h4>
+                        <p>Our system securely processes and stores your file</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Share</h4>
+                        <p>Get a permanent link to share anywhere</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <h2>Why Choose FileStream</h2>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <i class="fas fa-infinity"></i>
+                        <h4>Permanent Storage</h4>
+                        <p>Files are stored permanently with no expiration date</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Fast Upload</h4>
+                        <p>Optimized for quick file processing and delivery</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Secure</h4>
+                        <p>Automatic duplicate detection saves storage space</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-globe"></i>
+                        <h4>Accessible Anywhere</h4>
+                        <p>Files are accessible from any device, anywhere</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>FileStream &copy; 2024 | Simple, permanent file sharing</p>
+            <p class="footer-note">All uploaded files are publicly accessible. Do not upload sensitive information.</p>
+        </footer>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
